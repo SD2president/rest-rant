@@ -14,7 +14,7 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
    res.render('home');
 })
-
+  
 //this catches the 404 error
 app.get('*', (req, res) => {
     res.render('error404')
