@@ -1,13 +1,16 @@
 // Modules and Globals
 require('dotenv').config()
+const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
 
 //Express Settings
 app.set('view engine','jsx')
 app.engine('jsx', require('express-react-views').createEngine());
-app.use('/places', require('./controllers/place'))
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use('/places', require('./controllers/places'))
+
 
 
 //Controllers and routes
