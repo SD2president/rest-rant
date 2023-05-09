@@ -2,6 +2,7 @@
 require('dotenv').config()
 const bodyParser = require('body-parser');
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
 
 //Express Settings
@@ -10,6 +11,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use('/places', require('./controllers/places'))
+app.use(methodOverride('_method'))
 
 
 
